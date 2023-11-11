@@ -1,0 +1,23 @@
+services:
+
+  web:
+    build: ./src/angular
+    ports:
+      - 4200:4200
+    volumes:
+      - ./src/angular:/app  # Mount the source folder to the working directory of the dockerfile
+  
+  db:
+    image: mysql:8.2.0
+    volumes:
+      - ./src/database/db:/var/lib/mysql  # Mount the database storage to a local volume
+    ports:
+      - 3306:3306
+  
+  api:
+    build: ./src/api
+    depends_on:
+      - db
+  
+
+  

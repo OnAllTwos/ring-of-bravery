@@ -1,0 +1,8 @@
+datadragon:
+  base_url: https://na1.api.riotgames.com/
+
+database:
+  host: db
+  port: 3306
+  username: username
+  password: password
