@@ -9,3 +9,13 @@ services:
       - ..:/workspace:cached
     working_dir: /workspace
     command: sleep infinity
+
+  db:
+    image: mysql:8.2.0
+    volumes:
+      # - ./src/database/db:/var/lib/mysql  # Mount the database storage to a local volume
+      - ./database_init.sql:/docker-entrypoint-initdb.d/setup.sql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password

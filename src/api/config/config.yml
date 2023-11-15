@@ -2,7 +2,6 @@ datadragon:
   base_url: https://na1.api.riotgames.com/
 
 database:
-  host: db
-  port: 3306
+  host: mysql://db:3306/synergies
   username: username
   password: password
